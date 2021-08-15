@@ -100,3 +100,89 @@ let myNestedArray = [
     [[['level 4','deeper']]],    /* myNestedArray[3][0][0][0]    */
     [[[['level 5','deepest']]]]  /* myNestedArray[4][0][0][0][0] */
 ];
+
+/* ### Object Key-Value ### */
+const contraCharacter = {
+    player: 'Jho',
+    fightingStyle: 'Lorem',
+    human: false
+};
+contraCharacter.origin = 'USA'; // add
+contraCharacter['hair color'] = "yellow"; // add
+console.log(contraCharacter);
+let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28
+};
+foods.bananas = 13;
+foods.grapes = 35;
+foods.strawberries = 27;
+console.log(foods);
+let userActivity = {
+    id: 23894201352,
+    date: 'January 1, 2017',
+    data: {
+      totalUsers: 51,
+      online: 42
+    }
+};
+userActivity.data.online = 45;
+
+let foods1 = {
+    apples: 25,
+    oranges: 32,
+    plums: 28,
+    bananas: 13,
+    grapes: 35,
+    strawberries: 27
+};
+function checkInventory(scannedItem) {
+    return foods1[scannedItem];
+}
+console.log(checkInventory("apples"));
+delete foods1.oranges;
+console.log(foods1);
+let users = {
+    Alan: { age: 27, online: true },
+    Jeff: { age: 32, online: true },
+    Sarah: { age: 48, online: true },
+    Ryan: { age: 19, online: true }
+};
+function isEveryoneHere(userObj) {
+if(userObj.hasOwnProperty("Alan") &&
+    userObj.hasOwnProperty("Jeff") &&
+    userObj.hasOwnProperty("Sarah") &&
+    userObj.hasOwnProperty("Ryan")
+    ){ return true;}
+    else{ return false; }
+}
+function isEveryoneHere(userObj) {
+    return ["Alan", "Jeff", "Sarah", "Ryan"].every(name =>
+      userObj.hasOwnProperty(name)
+    );
+}
+console.log(isEveryoneHere(users));
+const customerCase = { 
+    Alan:   {online: false},
+    Jeff:   {online: true},
+    Sarah:  {online: false} 
+}
+function countOnline(usersObj) {
+    let countUsers = 0;
+    for(let user in usersObj) {
+      if(usersObj[user]["online"] == true){
+        countUsers++;
+      }
+    }
+    return countUsers;
+}
+console.log(countOnline(customerCase));
+function getArrayOfUsers(obj) {
+    let objName = [];
+    for(let user in obj){
+      objName.push(user);
+    }
+    return objName;
+}  
+console.log(getArrayOfUsers(customerCase));
