@@ -1,7 +1,7 @@
 /* ### Bir dizi spreat(...) operatörü ile kopyala ### */
 let thisArray = [true, true, undefined, false, null];
 let thatArray = [...thisArray];
-console.log(thatArray);
+//console.log(thatArray);
 function copyMachine(arr, num) {
     let newArr = [];
     while(num>=1) {
