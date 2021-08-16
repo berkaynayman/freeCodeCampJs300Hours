@@ -4,7 +4,7 @@ function convertToF(celsius){
     fahrenheit = (celsius*9/5) + 32;
     return fahrenheit;
 }
-convertToF(30);
+//console.log(convertToF(30));
 /* ### Reverse String ### */
 function reverseString(str) {
     let strRe ="";
@@ -14,7 +14,7 @@ function reverseString(str) {
     str = strRe;
     return str;
 }
-console.log(reverseString("hello"));
+//console.log(reverseString("hello"));
 /* ### Faktoriyel ### */
 function factorialize(num) {
     let numRe = 1;
@@ -24,4 +24,18 @@ function factorialize(num) {
     num = numRe;
     return num;
 }  
-factorialize(5);
+//console.log(factorialize(5));
+/* Cümle içerisinde en uzun kelime */
+function findLongestWordLength(str) {
+  let words = str.split(' ');
+  let maxLength = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > maxLength) {
+      maxLength = words[i].length;
+    }
+  }
+
+  return maxLength;
+}
+findLongestWordLength("Lorem kdnvks samf ppppp adovodsvm");
