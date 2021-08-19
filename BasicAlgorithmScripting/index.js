@@ -55,3 +55,49 @@ function confirmEnding(str, target) {
 }
 console.log(confirmEnding("Bastian", ""));
 console.log(confirmEnding("Selam dünyalı, biz dostuz", "dostuz"));
+/* ### Verilen stringi tekrarla ### */
+function repeatStringNumTimes(str, num) {
+  let strRet = "";
+  if(num<0){
+    return strRet;
+  }
+  for(let i=0;i<num;i++){
+    strRet+=str;
+  }
+  return strRet;
+}
+repeatStringNumTimes("abc", 3);
+/* ### string cut ### */
+function truncateString(str, num) {
+  if(str.length > num ){
+    let strRet = "";
+    strRet = str.slice(0,num) + "...";
+    console.log(strRet);
+    return strRet;
+  }else{
+    return str;
+  }
+}
+/* ### çift sayıyı return etmek ### */
+function findElement(arr, func) {
+  let num = 0;
+  for(let i=0;i<arr.length;i++){
+    num = arr[i];
+    if(func(num)){
+      return num;
+    }
+  }
+  return undefined;
+}
+document.write(findElement([1, 2, 3, 4], num => num % 2 === 0));
+document.write(findElement([1, 3, 5, 9], function(num) { return num % 2 === 0; }));
+/* ### JS Veri Tipi Kontrolü */
+function booWho(bool) {
+  if(bool === true || bool === false){
+    return true;
+  }else{
+    return false;
+  }
+  //return typeof bool === "boolean";
+}
+booWho(null);
