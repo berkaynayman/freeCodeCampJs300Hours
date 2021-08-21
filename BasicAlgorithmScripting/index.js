@@ -101,3 +101,22 @@ function booWho(bool) {
   //return typeof bool === "boolean";
 }
 booWho(null);
+/* ### Title Case a Sentence ### */
+function titleCase(str){
+  var convertToArray = str.toLowerCase().split(" ");
+  var result = convertToArray.map(function(val){
+    return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+  });
+  return result.join(" ");
+}
+console.log(titleCase("I'm a title tea pot"));
+console.log(titleCase("bErkaY nAYMAn"));
+/* ### Slice and Splice ###*/
+function frankenSplice(arr1, arr2, n) {
+  var cpyArr2 = [...arr2];
+  var cpySpliceArr2 =  cpyArr2.splice(n,arr1.length, ...arr1);
+  cpyArr2.push(...cpySpliceArr2);
+  return cpyArr2;
+}
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+frankenSplice([1, 2], ["a", "b"], 1);
