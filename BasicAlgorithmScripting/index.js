@@ -120,3 +120,23 @@ function frankenSplice(arr1, arr2, n) {
 }
 frankenSplice([1, 2, 3], [4, 5, 6], 1);
 frankenSplice([1, 2], ["a", "b"], 1);
+/* ### Falsy Bouncer ### */
+function bouncer(arr) {
+  var retArr = [];
+  arr.map(function(item){
+    if(Boolean(item)){
+      retArr.push(item);
+    }
+  })
+  return retArr;
+}
+bouncer([7, "ate", "", false, 9]); // [7, "ate", 9]
+bouncer([false, null, 0, NaN, undefined, ""]) // []
+bouncer([null, NaN, 1, 2, undefined]) // [1,2]
+/* ### Where do I Belong ### */
+function getIndexToIns(arr, num) {
+  return arr.filter(val => num > val).length;
+}
+getIndexToIns([40, 60], 50);
+getIndexToIns([10, 20, 30, 40, 50], 30);
+getIndexToIns([5, 3, 20, 3], 5);
