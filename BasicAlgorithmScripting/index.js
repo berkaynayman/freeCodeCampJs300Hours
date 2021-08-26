@@ -140,3 +140,14 @@ function getIndexToIns(arr, num) {
 getIndexToIns([40, 60], 50);
 getIndexToIns([10, 20, 30, 40, 50], 30);
 getIndexToIns([5, 3, 20, 3], 5);
+/* ### Mutations ### */
+function mutation(arr){
+  let test = arr[1].toLowerCase();
+  let target = arr[0].toLowerCase();
+  for(let i=0 ; i < test.length ; i++){
+    if(target.indexOf(test[i]) < 0) return false;
+  }
+  return true
+}
+mutation(["Mary", "Army"]);
+mutation(["voodoo", "no"])
