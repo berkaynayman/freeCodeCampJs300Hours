@@ -125,3 +125,31 @@ console.log(names.includes("ece", -4)); // true
 console.log(names.includes("ece", -100)); // true
 
 // ##### map() - dizideki tüm elemanları işlemden geçirmemizi sağlar
+const numberss = [1, 4, 9];
+const Result = numberss.map(function(number){
+    return number * 2; 
+})
+//const Result = numbers.map(number => Math.sqrt(number));
+console.log("Result " + Result);
+
+const users3 = [
+    {
+        name: "Berkay",
+        surname : "Nayman",
+        age: 21
+    },
+    {
+        name: "Temel",
+        surname: "Dursun",
+        age: 61
+    }
+]
+
+const date = new Date()
+const Result1 = users3.map(user => {
+    return {
+        fullName: `${user.name} ${user.surname}`,
+        yearOfBirth: date.getFullYear() - user.age
+    }
+})
+console.log(Result1);
