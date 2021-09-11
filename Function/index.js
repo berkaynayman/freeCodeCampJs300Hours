@@ -153,3 +153,40 @@ const Result1 = users3.map(user => {
     }
 })
 console.log(Result1);
+
+// reduce()
+
+console.log(numbers);
+let total = numbers.reduce((acc, numbers) => acc + numbers); // numbersdaki sayıların toplamı 202
+let total2 = numbers.reduce((acc, numbers) => acc + numbers, 5); // numbersdaki sayıların toplamı 202+5 = 207
+
+const basket = [
+    {
+        name: "iPhone 8",
+        price: 7000
+    },
+    {
+        name: "Appke Mackbook Pro",
+        price: 14000
+    },
+    {
+        name: "Harman/Kardon",
+        price: 2500
+    }
+]
+
+// basket dizimdeki ürünlerin pricelarının toplamını öğrenmek istiyorum
+
+let sum = basket.reduce((acc, product) => acc + product.price, 0); //burada 0' ı belirtmemiz gerek
+//console.log(sum);
+
+const names1 = ['Berkay', 'Mehmet', 'Elif', 'Simge', 'Kübra', 'Melek', 'Melek', 'Kübra', 'Kübra', 'Berkay'];
+let countedNames1 = names1.reduce((allNames, name) => {
+    if(name in allNames){
+        allNames[name]++
+    }else{
+        allNames[name] = 1
+    }
+    return allNames
+}, {})
+console.log(countedNames1);
