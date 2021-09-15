@@ -1,0 +1,39 @@
+<!--bir başka semye geçince ve geri aynı sekmeye gelince çalışan bir event-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visibility change</title>
+</head>
+<body>
+    <h1>Geri sayımın bitmesine <span id="seconds">10</span> saniye</h1>
+
+    <script>
+        let seconds = 10,
+        span = document.getElementById("seconds");
+
+    const counter = () => {
+        if(seconds > 1){
+            seconds--
+            span.innerText = seconds
+        }else{
+            clearInterval(countdown);
+        }
+    }
+
+    let countdown = setInterval(counter, 1000);
+
+    document.addEventListener('visibilitychange', () => {
+        //console.log(document.visibilityState);
+        if(document.visibilityState === 'visible'){
+            countdown = setInterval(counter, 1000)
+        }else{
+            console.log('geri sayım durduruldu!');
+            clearInterval(countdown);
+        }
+    })
+    </script>
+</body>
+</html>
