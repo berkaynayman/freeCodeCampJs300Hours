@@ -54,12 +54,12 @@ Dog_2.prototype.friends = "Shibiba";
 console.log(terrier.friends);
 
 // Iterate Over All Properties
-/*
+
 function Bird(name) {
   this.name = name;  //own property
 }
 Bird.prototype.numLegs = 2; // prototype property
-*/
+
 // own property ve prototype property ayırmak
 let ownProps1 = [];
 let prototypeProps = [];
@@ -72,3 +72,21 @@ for(let property in terrier){
 }
 console.log("ownProps1 - " + ownProps1);
 console.log("prototypeProps - " + prototypeProps);
+
+//Understand the Constructor Property
+
+let duck1 = new Bird();
+let beagle1 = new Dog();
+
+console.log(duck1.constructor === Bird); //true
+console.log(beagle1.constructor === Dog); // true
+
+//Change the Prototype to a New Object
+
+/*
+Dog.prototype = {
+  numLegs: 4,
+  eat: function() { console.log("nom nom")},
+  describe: function() { console.log("Hav Hav")},
+};
+*/
