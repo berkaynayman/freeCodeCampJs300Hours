@@ -81,12 +81,22 @@ let beagle1 = new Dog();
 console.log(duck1.constructor === Bird); //true
 console.log(beagle1.constructor === Dog); // true
 
+//Understand Where an Object’s Prototype Comes From
+console.log(Bird.prototype.isPrototypeOf(duck1)); //true
+console.log(Dog.prototype.isPrototypeOf(beagle1)); //true
+
+
 //Change the Prototype to a New Object
 
 /*
 Dog.prototype = {
+    prototype kullandığımız zaman constuctor: Dog ile bunu belirtmemiz gerekiyor yoksa constructor kontrolünde false döner
+  constructor: Dog,
   numLegs: 4,
   eat: function() { console.log("nom nom")},
   describe: function() { console.log("Hav Hav")},
 };
+*/
+/* Remember to Set the Constructor Property when Changing the Prototype
+    prototype kullandığımız zaman constuctor: Dog ile bunu belirtmemiz gerekiyor yoksa constructor kontrolünde false döner
 */
