@@ -100,3 +100,77 @@ Dog.prototype = {
 /* Remember to Set the Constructor Property when Changing the Prototype
     prototype kullandığımız zaman constuctor: Dog ile bunu belirtmemiz gerekiyor yoksa constructor kontrolünde false döner
 */
+
+//Understand the Prototype Chain
+console.log(Dog.prototype.isPrototypeOf(beagle1));
+console.log(Object.prototype.isPrototypeOf(Dog.prototype));
+
+// Use Inheritance So You Don't Repeat Yourself
+
+/*
+
+XXXXX RONG XXXXX
+
+Bird.prototype = {
+  constructor: Bird,
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+
+Dog.prototype = {
+  constructor: Dog,
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+
+XXXX TRUE XXXX
+
+function Animal() { };
+Animal.prototype = {
+  constructor: Animal, 
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+
+Bird.prototype = {
+  constructor: Bird
+};
+
+Dog.prototype = {
+  constructor: Dog
+};
+
+*/
+
+//Inherit Behaviors from a Supertype
+
+let duck = Object.create(Animal.prototype);
+let beagle = Object.create(Animal.prototype);
+
+/*
+Set the Child's Prototype to an Instance of the Parent
+
+Bird.prototype = Object.create(Animal.prototype);
+let duck = new Bird("Donald");
+duck.eat();
+
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+*/
+
