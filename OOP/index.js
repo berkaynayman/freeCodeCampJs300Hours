@@ -147,8 +147,8 @@ Dog.prototype = {
 
 //Inherit Behaviors from a Supertype
 
-let duck = Object.create(Animal.prototype);
-let beagle = Object.create(Animal.prototype);
+//let duck = Object.create(Animal.prototype);
+//let beagle = Object.create(Animal.prototype);
 
 /*
 Set the Child's Prototype to an Instance of the Parent
@@ -174,3 +174,27 @@ Dog.prototype = Object.create(Animal.prototype);
 let beagle = new Dog();
 */
 
+//Reset an Inherited Constructor Property
+
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+
+//Add Methods After Inheritance
+
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog_3() {};
+Dog_3.prototype = Object.create(Animal.prototype);
+Dog_3.prototype.constructor = Dog_3;
+
+Dog_3.prototype.bark = function() { console.log("Woof!");}
+let beagle_3 = new Dog_3();
+console.log(beagle_3.eat());
+
+//Override Inherited Methods
+
+Dog_3.prototype.eat = function(){
+  console.log("HRHRHRHRHRH");
+}
+console.log(beagle_3.eat());
