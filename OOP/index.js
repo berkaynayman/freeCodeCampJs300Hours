@@ -198,3 +198,82 @@ Dog_3.prototype.eat = function(){
   console.log("HRHRHRHRHRH");
 }
 console.log(beagle_3.eat());
+
+// Use a Mixin to Add Common Behavior Between Unrelated Objects
+
+let bird = {
+  name : "Duffy",
+  numLegs : 2
+}
+
+let boat = {
+  name : "Derya",
+  type : "race-boat"
+}
+
+let glideMixin = (obj) => {
+  obj.glide = () => {
+    console.log("glide");
+  }
+}
+
+glideMixin(bird);
+glideMixin(boat);
+console.log(bird);
+
+/* Nesne içindeki veriler çok kolay değiştirilebilir aşağıdaki gibi
+   bird.name = "Duffy";
+   
+   bu verilerin bu kadar kolay değiştirilmesini istemeyiz çünkü
+   bu veriler banka bilgilerini içerebilir.
+*/
+
+function Bird_1(){
+  let weight = 15;
+  this.getWeight = () => {
+    return weight
+  };
+}
+
+let Duffy = new Bird_1();
+console.log(Duffy.getWeight());
+
+// Immediately Invoked Function Expression(IIFE)
+
+(function () {
+  console.log("-");
+})();
+
+//Use an IIFE to Create a Module
+
+let motionModule = (function () {
+  return {
+    glideMixin: function(obj) {
+      obj.glide = function() {
+        console.log("Gliding");
+      };
+    },
+    flyMixin : function(obj) {
+      obj.fly = function() {
+        console.log("flying");
+      };
+    }
+  }
+})();
+
+motionModule.glideMixin(Duffy);
+Duffy.glide();
+
+let funModule = (function () {
+  return{
+    isCuteMixin : function() {
+      return true
+    },
+    singMixin : function() {
+      console.log("Sigin");
+    }
+  }
+})();
+
+funModule.isCuteMixin();
+funModule.singMixin();
